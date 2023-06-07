@@ -16,17 +16,31 @@ const flash = require('connect-flash');
 const { flashMessages } = require('./middleware');
 const User = require('./models/user');
 const passport = require('passport');
+const MongoStore = require('connect-mongo');
+const dbUri = process.env.DB_URI;
 
+//mongodb://127.0.0.1:27017/firstapp
 
 main().catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/firstapp');
+    await mongoose.connect(dbUri);
 
 }
 const app = express();
 
+const store = MongoStore.create({
+    mongoUrl: dbUri,
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret: 'thisisasecret'
+    }
+})
+
+
+
 const sessionConfig = {
+    store: store,
     secret: 'thisisasecret',
     resave: false,
     saveUninitialized: true,
