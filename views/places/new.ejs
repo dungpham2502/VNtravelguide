@@ -1,0 +1,45 @@
+<% layout('/layout/boilerplate') %>
+    <div class="row mt-5">
+        <div class="col-6 offset-3">
+            <h3>Add New Place</h3>
+            <form action="/places" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" name="place[title]" id="title" required>
+                    <div class="invalid-feedback">Cannot Be Empty!</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" name="place[location]" id="location" required>
+                    <div class="invalid-feedback">Cannot Be Empty!</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <input class="form-control" type="text" name="place[description]" id="description" required>
+                    <div class="invalid-feedback">Cannot Be Empty!</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image</label>
+                    <input class="form-control" type="file" name="image" id="image" multiple required>
+                    <div class="invalid-feedback">Cannot Be Empty!</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="cost">Cost</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+                            name="place[cost]" id="place" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                        <div class="invalid-feedback">Cannot Be Empty!</div>
+                    </div>
+                </div>
+                <button class="btn btn-light border-dark-subtle">Add New Travel Place</button>
+            </form>
+            <a href="/places">Cancel</a>
+        </div>
+    </div>
