@@ -8,3 +8,11 @@ body {
 .cover-container {
     max-width: 90vw;
 }
+
+.nav-link {
+    color: rgb(186, 186, 186);
+}
+
+.nav-link:hover {
+    color: white;
+}
